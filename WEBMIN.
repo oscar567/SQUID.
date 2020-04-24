@@ -1,0 +1,39 @@
+01:57 24/04/2020
+--------------------------------------------------------------------
+--------------------------------------------------------------------
+INSTALACIÓN   : WEBMIN.
+SERVICIO      : Servidor WEB de administarcion de CentOS.
+REQUERIMIENTOS: FRESH CentOS.
+--------------------------------------------------------------------
+--------------------------------------------------------------------
+SISTEMA OPERATIVO: LINUX.
+DISTRO GNU/LINUX : CentOS.
+VERSION          : 7.
+--------------------------------------------------------------------
+--------------------------------------------------------------------
+DIRECCION IP     : 192.168.1.25/24
+PUERTO           : 10000.
+USUARIO          : root
+CLAVE            : Oscar567
+--------------------------------------------------------------------
+--------------------------------------------------------------------
+COMPAÑIA         : REDES EN SERVIDORES.
+INGENIERO        : OSCAR ANDRES MACIAS NARVAEZ.
+WHATSAPP         : +57 (315) 685 2745.
+PAÍS             : COLOMBIA.
+--------------------------------------------------------------------
+--------------------------------------------------------------------
+yum install wget install perl perl-Net-SSLeay openssl perl-IO-Tty perl-Encode-Detect -y
+wget http://prdownloads.sourceforge.net/webadmin/webmin-1.860-1.noarch.rpm
+rpm -U webmin-1.860-1.noarch.rpm
+
+systemctl start httpd.service; systemctl enable httpd.service
+
+# AGREGAR EXCEPCION DEL SERVICIO WEBMIN DENTRO DEL FIREWALL.
+firewall-cmd --zone=public --add-port=10000/tcp --permanent; firewall-cmd --reload
+
+* PRUEBAS. *
+https://192.168.1.25:10000
+
+--------------------------------------------------------------------
+--------------------------------------------------------------------
